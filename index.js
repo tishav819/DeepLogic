@@ -25,7 +25,7 @@ function gettimeStories(datacall)
                 items.push({title,link})  // making a list for title and link
                 
             });
-        //    console.log("calling callback")
+        
             datacall(items);
             
         });
@@ -34,7 +34,7 @@ function gettimeStories(datacall)
         console.error(err);
     });
 
-    //console.log("getTimetoriesEnd");
+    
 }
 
 
