@@ -1,7 +1,7 @@
-const https = require('node:https');
-const http = require('node:http');
+const https = require('https');
+const http = require('http');
 
-function gettimeStories(callback)
+function gettimeStories(datacall)
 {
     https.get('https://time.com/', (res) => {
         data = ""
@@ -13,25 +13,25 @@ function gettimeStories(callback)
         var items =[]
 
         res.on('end', ()=>{
-            var AllItems = data.split('<div class="partial latest-stories" data-module_name="Latest Stories">')[1];
-            var itemsRaw = AllItems.split('<li class="latest-stories__item">')  // getting the data from times now
+            var AllItemsoftimes = data.split('<div class="partial latest-stories" data-module_name="Latest Stories">')[1];
+            var itemsRawdata = AllItemsoftimes.split('<li class="latest-stories__item">')  // getting the data from times now
 
                         
-            itemsRaw.splice(0,1)
+            itemsRawdata.splice(0,1)
             
-            itemsRaw.forEach(element => {
+            itemsRawdata.forEach(element => {
                 link = 'https://time.com/'+element.split('<a href="')[1].split('/">')[0] // getting link
                 title = element.split('<h3 class="latest-stories__item-headline">')[1].split('</h3>')[0]   // getting the title by splitting from h3
                 items.push({title,link})  // making a list for title and link
                 
             });
         //    console.log("calling callback")
-            callback(items);
+            datacall(items);
             
         });
 
-    }).on('error', (e) => {
-        console.error(e);
+    }).on('error', (err) => {
+        console.error(err);
     });
 
     //console.log("getTimetoriesEnd");
@@ -55,9 +55,9 @@ http.createServer(function (req, res) {
         })
     }
     else{
-        res.write('This is home. Please go to http://localhost:8080/getTimeStories');
+        res.write('This is home. Please go to http://localhost:8000/getTimeStories');
         res.end();
     }
-}).listen(8080);  // creating server
+}).listen(8000);  // creating server
 
 
