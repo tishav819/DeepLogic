@@ -1,0 +1,19 @@
+{
+  "name": "deeplogic",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tishav819/DeepLogic.git"
+  },
+  "author": "Tisha Verma",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tishav819/DeepLogic/issues"
+  },
+  "homepage": "https://github.com/tishav819/DeepLogic#readme"
+}
