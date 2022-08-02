@@ -24,7 +24,7 @@ function gettimeStories(datacall)
                 title = element.split('<h3 class="latest-stories__item-headline">')[1].split('</h3>')[0]   // getting the title by splitting from h3
                 items.push({title,link})  // making a list for title and link
                 
-            });
+            }); // practice
         
             datacall(items);
             
